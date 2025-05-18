@@ -1,0 +1,23 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f4f0;
+    color: #333;
+    margin: 0;
+    padding: 20px;
+}
+header {
+    background-color: #a9825a;
+    color: white;
+    padding: 10px;
+}
+main {
+    max-width: 800px;
+    margin: auto;
+}
+a {
+    color: #7a4e2d;
+}
+form input, form textarea {
+    width: 100%;
+    margin-bottom: 10px;
+}
