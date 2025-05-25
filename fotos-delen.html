@@ -6,10 +6,34 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header><h1>Upload jouw familiefoto's</h1></header>
+    <header><h1>Foto's Delen</h1></header>
     <main>
-        <p>Stuur jouw familiefoto’s via dit <a href="https://formspree.io/f/mexample">formulier</a>.</p>
-        <p>Of mail ze naar: bop.felix@gmail.com</p>
+        <section class="upload-section">
+            <h2>Upload je foto's</h2>
+            <form action="https://formspree.io/f/mexample" method="POST" enctype="multipart/form-data">
+                <label>Selecteer foto's: <input type="file" name="fotos" multiple accept="image/*" required></label>
+                <label>Beschrijving: <textarea name="beschrijving" placeholder="Vertel iets over deze foto's"></textarea></label>
+                <label>Jaar van de foto's: <input type="number" name="jaar" min="1900" max="2024"></label>
+                <button type="submit">Uploaden</button>
+            </form>
+        </section>
+
+        <section class="photo-gallery">
+            <h2>Gedeelde Foto's</h2>
+            <div class="photo-grid">
+                <!-- Example photo items - these would be dynamically populated -->
+                <div class="photo-item">
+                    <img src="placeholder.jpg" alt="Familiefoto" style="width: 100%; height: auto;">
+                    <p>Familiefoto uit 1980</p>
+                    <p>Gedeeld door: Jan Felix</p>
+                </div>
+                <div class="photo-item">
+                    <img src="placeholder.jpg" alt="Familiefoto" style="width: 100%; height: auto;">
+                    <p>Reünie 1995</p>
+                    <p>Gedeeld door: Maria Peeters</p>
+                </div>
+            </div>
+        </section>
     </main>
 </body>
 </html>

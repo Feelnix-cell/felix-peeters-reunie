@@ -2,15 +2,84 @@
 <html lang="nl">
 <head>
     <meta charset="UTF-8">
-    <title>Stamboom</title>
+    <title>Familie Stamboom</title>
     <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.0.0/d3.min.js"></script>
 </head>
 <body>
-    <header><h1>Stamboom Felix – Peeters</h1></header>
+    <header><h1>Familie Stamboom</h1></header>
     <main>
-        <p>Bekijk hieronder de stamboom (voorbeeld):</p>
-        <img src="stamboom.png" alt="Stamboom" style="max-width:100%;">
-        <p>Voeg jouw gezin toe via het <a href="https://formspree.io/f/mexample">formulier</a>.</p>
+        <section class="family-tree">
+            <h2>Stamboom van de Familie Felix-Peeters</h2>
+            <div id="tree-container" style="width: 100%; height: 800px; overflow: auto;">
+                <!-- The family tree will be rendered here using D3.js -->
+            </div>
+        </section>
+
+        <section class="family-info">
+            <h2>Voeg informatie toe</h2>
+            <form action="https://formspree.io/f/mexample" method="POST">
+                <label>Naam: <input type="text" name="naam" required></label>
+                <label>Geboortedatum: <input type="date" name="geboortedatum"></label>
+                <label>Overlijdensdatum: <input type="date" name="overlijdensdatum"></label>
+                <label>Ouders: <input type="text" name="ouders" placeholder="Namen van ouders"></label>
+                <label>Partner: <input type="text" name="partner" placeholder="Naam van partner"></label>
+                <label>Kinderen: <textarea name="kinderen" placeholder="Namen van kinderen, gescheiden door komma's"></textarea></label>
+                <label>Extra informatie: <textarea name="extra_info" placeholder="Andere relevante informatie"></textarea></label>
+                <button type="submit">Toevoegen</button>
+            </form>
+        </section>
     </main>
+
+    <script>
+        // Basic D3.js tree visualization
+        const data = {
+            name: "H.B.J. Felix & Maria Peeters",
+            children: [
+                // This will be populated with data from the form submissions
+            ]
+        };
+
+        const width = 1200;
+        const height = 800;
+
+        const tree = d3.tree()
+            .size([width, height]);
+
+        const root = d3.hierarchy(data);
+        tree(root);
+
+        const svg = d3.select("#tree-container")
+            .append("svg")
+            .attr("width", width)
+            .attr("height", height)
+            .append("g")
+            .attr("transform", "translate(40,0)");
+
+        const link = svg.selectAll(".link")
+            .data(root.links())
+            .enter()
+            .append("path")
+            .attr("class", "link")
+            .attr("d", d3.linkVertical()
+                .x(d => d.x)
+                .y(d => d.y));
+
+        const node = svg.selectAll(".node")
+            .data(root.descendants())
+            .enter()
+            .append("g")
+            .attr("class", "node")
+            .attr("transform", d => `translate(${d.x},${d.y})`);
+
+        node.append("circle")
+            .attr("r", 5);
+
+        node.append("text")
+            .attr("dy", ".31em")
+            .attr("x", d => d.children ? -6 : 6)
+            .attr("text-anchor", d => d.children ? "end" : "start")
+            .text(d => d.data.name);
+    </script>
 </body>
 </html>

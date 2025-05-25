@@ -2,14 +2,85 @@
 <html lang="nl">
 <head>
     <meta charset="UTF-8">
-    <title>Familieverhaal</title>
+    <title>Familie Verhaal</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header><h1>De lijn Felix – Peeters</h1></header>
+    <header><h1>Het Familie Verhaal</h1></header>
     <main>
-        <p>Een verhaal over arbeid, ambacht, muziek en verbondenheid. H.B.J. Felix – kleermaker en fluitspeler – trouwde met Maria Peeters, dochter van een aannemer. Samen kregen ze zeven kinderen. Hun verhaal leeft voort in ons.</p>
-        <p><a href="index.html">← Terug naar start</a></p>
+        <article class="story-content">
+            <h2>De Geschiedenis van de Familie Felix-Peeters</h2>
+            
+            <section class="story-section">
+                <h3>De Oorsprong</h3>
+                <p>Hier komt het verhaal over de oorsprong van de familie Felix-Peeters. Dit is een placeholder tekst die vervangen moet worden met het echte familieverhaal.</p>
+                <div class="story-image">
+                    <img src="placeholder.jpg" alt="Historische foto" style="max-width: 100%; height: auto;">
+                    <p class="caption">Een historische foto van de familie (placeholder)</p>
+                </div>
+            </section>
+
+            <section class="story-section">
+                <h3>Belangrijke Momenten</h3>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <h4>1900</h4>
+                        <p>Eerste belangrijke gebeurtenis in de familiegeschiedenis.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h4>1950</h4>
+                        <p>Een ander belangrijk moment in de familiegeschiedenis.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h4>2000</h4>
+                        <p>Recentere gebeurtenissen in de familiegeschiedenis.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="story-section">
+                <h3>Familie Tradities</h3>
+                <p>Beschrijving van belangrijke familie tradities en gebruiken die door de generaties heen zijn doorgegeven.</p>
+            </section>
+
+            <section class="story-section">
+                <h3>Deel Jouw Verhaal</h3>
+                <form action="https://formspree.io/f/mexample" method="POST">
+                    <label>Jouw naam: <input type="text" name="naam" required></label>
+                    <label>Jouw verhaal: <textarea name="verhaal" required placeholder="Deel hier jouw herinneringen of verhalen over de familie"></textarea></label>
+                    <label>Periode: <input type="text" name="periode" placeholder="Bijv. 1950-1960"></label>
+                    <button type="submit">Verhaal Delen</button>
+                </form>
+            </section>
+        </article>
     </main>
+
+    <style>
+        .story-section {
+            margin-bottom: 3rem;
+        }
+
+        .timeline {
+            position: relative;
+            padding: 2rem 0;
+        }
+
+        .timeline-item {
+            margin-bottom: 2rem;
+            padding-left: 2rem;
+            border-left: 3px solid var(--secondary-color);
+        }
+
+        .story-image {
+            margin: 2rem 0;
+            text-align: center;
+        }
+
+        .caption {
+            font-style: italic;
+            color: #666;
+            margin-top: 0.5rem;
+        }
+    </style>
 </body>
 </html>

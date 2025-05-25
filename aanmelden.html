@@ -9,11 +9,33 @@
     <header><h1>Meld je aan voor de Reünie</h1></header>
     <main>
         <form action="https://formspree.io/f/mexample" method="POST">
-            <label>Naam: <input type="text" name="naam" required></label><br>
-            <label>Email: <input type="email" name="email" required></label><br>
-            <label>Verwantschap: <input type="text" name="verwantschap"></label><br>
-            <label>Opmerkingen: <textarea name="opmerkingen"></textarea></label><br>
-            <button type="submit">Verzenden</button>
+            <h2>Persoonlijke Gegevens</h2>
+            <label>Voornaam: <input type="text" name="voornaam" required></label>
+            <label>Achternaam: <input type="text" name="achternaam" required></label>
+            <label>Email: <input type="email" name="email" required></label>
+            <label>Telefoonnummer: <input type="tel" name="telefoon"></label>
+            <label>Geboortedatum: <input type="date" name="geboortedatum"></label>
+
+            <h2>Familie Informatie</h2>
+            <label>Naam van ouders: <input type="text" name="ouders" placeholder="Naam van je ouders"></label>
+            <label>Tak van de familie: 
+                <select name="familie_tak" required>
+                    <option value="">Selecteer een tak</option>
+                    <option value="felix">Felix</option>
+                    <option value="peeters">Peeters</option>
+                    <option value="beide">Beide</option>
+                </select>
+            </label>
+            <label>Verwantschap met H.B.J. Felix en Maria Peeters: 
+                <input type="text" name="verwantschap" placeholder="Bijv. kleinkind, achterkleinkind, etc.">
+            </label>
+
+            <h2>Reünie Details</h2>
+            <label>Aantal personen: <input type="number" name="aantal_personen" min="1" value="1" required></label>
+            <label>Dieetwensen: <textarea name="dieetwensen" placeholder="Speciale dieetwensen of allergieën"></textarea></label>
+            <label>Opmerkingen: <textarea name="opmerkingen" placeholder="Andere opmerkingen of vragen"></textarea></label>
+
+            <button type="submit">Aanmelden</button>
         </form>
     </main>
 </body>
